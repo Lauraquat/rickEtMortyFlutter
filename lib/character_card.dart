@@ -18,11 +18,13 @@ class CharacterCard extends StatelessWidget {
               imageUrl,
               width: 120,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                title,
-                style: const TextStyle(fontSize: 22),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Text(
+                  title,
+                  style: const TextStyle(fontSize: 22),
+                ),
               ),
             ),
           ],
