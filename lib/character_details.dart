@@ -4,7 +4,14 @@ import 'package:http/http.dart' as http;
 
 class CharacterDetailsPage extends StatefulWidget {
   final int id;
-  const CharacterDetailsPage({super.key, required this.id});
+  final String imageUrl;
+
+  const CharacterDetailsPage({
+    super.key,
+    required this.id,
+    required this.imageUrl,
+  });
+
   @override
   State<StatefulWidget> createState() => _CharacterDetailsPageState();
 }
@@ -30,13 +37,28 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
   Widget build(BuildContext context) {
     Widget content;
     if (character == null) {
-      content = const Center(child: CircularProgressIndicator());
+      content = Column(
+        children: [
+          Hero(
+            tag: widget.imageUrl,
+            child: Image.network(
+              widget.imageUrl,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const Center(child: CircularProgressIndicator()),
+        ],
+      );
     } else {
-      content = Column(children: [
-        Image.network(
-          character['image'],
-          width: double.infinity,
-          fit: BoxFit.cover,
+      content = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Hero(
+          tag: widget.imageUrl,
+          child: Image.network(
+            widget.imageUrl,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

@@ -40,8 +40,10 @@ class _CharactersPageState extends State<CharactersPage> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) =>
-                          CharacterDetailsPage(id: e["id"] as int),
+                      builder: (context) => CharacterDetailsPage(
+                        id: e["id"] as int,
+                        imageUrl: e['image'] as String,
+                      ),
                     ),
                   );
                 },
