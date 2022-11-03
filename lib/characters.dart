@@ -48,6 +48,7 @@ class _CharactersPageState extends State<CharactersPage> {
                 child: CharacterCard(
                   imageUrl: e['image'] as String,
                   title: e['name'] as String,
+                  isAlive: e['status'] == 'Alive',
                 )))
             .toList(),
       ),
