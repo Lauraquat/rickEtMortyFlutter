@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:ecv_mobile_list_flutter/character_card.dart';
+import 'package:ecv_mobile_list_flutter/character_details.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,10 +36,19 @@ class _CharactersPageState extends State<CharactersPage> {
       ),
       body: ListView(
         children: characters
-            .map((e) => CharacterCard(
+            .map((e) => InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          CharacterDetailsPage(id: e["id"] as int),
+                    ),
+                  );
+                },
+                child: CharacterCard(
                   imageUrl: e['image'] as String,
                   title: e['name'] as String,
-                ))
+                )))
             .toList(),
       ),
     );
