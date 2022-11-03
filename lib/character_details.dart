@@ -37,6 +37,10 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
           character['image'],
           width: double.infinity,
           fit: BoxFit.cover,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(character['name'], style: const TextStyle(fontSize: 30)),
         )
       ]);
     }
