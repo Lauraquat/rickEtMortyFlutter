@@ -53,9 +53,9 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
     } else {
       content = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Hero(
-          tag: widget.imageUrl,
+          tag: character['image'],
           child: Image.network(
-            widget.imageUrl,
+            character['image'],
             width: double.infinity,
             fit: BoxFit.cover,
           ),
