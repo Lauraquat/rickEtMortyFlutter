@@ -32,7 +32,13 @@ class _CharacterDetailsPageState extends State<CharacterDetailsPage> {
     if (character == null) {
       content = const Center(child: CircularProgressIndicator());
     } else {
-      content = Text("Character Loaded $character");
+      content = Column(children: [
+        Image.network(
+          character['image'],
+          width: double.infinity,
+          fit: BoxFit.cover,
+        )
+      ]);
     }
     return Scaffold(body: content);
   }
